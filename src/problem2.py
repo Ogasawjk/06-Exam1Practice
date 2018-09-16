@@ -102,6 +102,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     import rosegraphics as rg
+
     our_circle = circle
     my_window = window
     rec = rectangle
