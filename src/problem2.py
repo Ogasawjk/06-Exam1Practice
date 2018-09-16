@@ -2,8 +2,8 @@
 PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and JUSTIN OGASAWARA.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -101,8 +101,31 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+    import rosegraphics as rg
+    our_circle = circle
+    my_window = window
+    rec = rectangle
+    start = rectangle.get_upper_right_corner()
+    end = rectangle.get_lower_left_corner()
+
+    rec.attach_to(my_window)
+    our_circle.attach_to(my_window)
+    my_window.render()
+
+    my_window.continue_on_mouse_click()
+
+    line = rg.Line(start, end)
+    line.attach_to(my_window)
+    my_window.render()
+
+    my_window.continue_on_mouse_click()
+
+    outline_color = rectangle.outline_color
+    our_circle.fill_color = outline_color
+    window.render()
+
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -172,8 +195,28 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+    import rosegraphics as rg
+    window = win
+    rec = rect
+
+    rec.attach_to(window)
+    window.render()
+
+    start = rect.get_upper_left_corner()
+    end = rect.get_lower_right_corner()
+
+    for k in range(n):
+
+        rectangle = rg.Rectangle(start,end)
+        rectangle.attach_to(window)
+        start.x = start.x - delta
+        start.y = start.y - delta
+        end.x = end.x + delta
+        end.y = end.y + delta
+        window.render()
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
